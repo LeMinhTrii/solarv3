@@ -421,3 +421,78 @@ body.menu-open {
 .sg-menu-toggle.is-active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
+
+/* =========================
+   MOBILE PRODUCT NAV FIX
+   Product dropdown always open on mobile
+========================= */
+
+@media (max-width: 991px) {
+  .sg-nav .sg-nav-dropdown {
+    width: 100%;
+  }
+
+  /* Nút Sản phẩm vẫn là link bấm được */
+  .sg-nav .sg-nav-dropdown-btn {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f9fc;
+    color: #23313f;
+  }
+
+  .sg-nav .sg-nav-dropdown-btn.active {
+    color: #ffffff;
+    background: var(--green-gradient);
+  }
+
+  /* Mobile: danh mục sản phẩm bung ra luôn, không cần hover/click */
+  .sg-nav .sg-nav-dropdown .sg-dropdown-menu {
+    position: static;
+    display: grid !important;
+    gap: 6px;
+    min-width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none;
+    border: 1px solid #edf1f5;
+    border-radius: 14px;
+    background: #ffffff;
+  }
+
+  .sg-nav .sg-nav-dropdown:hover .sg-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .sg-nav .sg-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 39px;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: rgba(8, 115, 53, 0.04);
+    color: #23313f;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  .sg-nav .sg-dropdown-menu a:hover {
+    background: rgba(8, 115, 53, 0.09);
+    color: #087335;
+  }
+
+  /* Không cần xoay icon nữa vì menu luôn mở */
+  .sg-nav .sg-nav-dropdown-btn i {
+    transform: rotate(180deg);
+  }
+}

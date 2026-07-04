@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function (event) {
       if (window.innerWidth > 991) return;
 
-      event.preventDefault();
+      // event.preventDefault();
 
       dropdownItems.forEach(function (otherItem) {
         if (otherItem !== item) {
