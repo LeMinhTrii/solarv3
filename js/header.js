@@ -1,3 +1,27 @@
+// contact fixed
+document.addEventListener("DOMContentLoaded", function () {
+  const fixedContact = document.getElementById("sgFixedContact");
+
+  if (!fixedContact) return;
+
+  const showAfter = 450;
+
+  function toggleFixedContact() {
+    if (window.scrollY > showAfter) {
+      fixedContact.classList.add("is-show");
+    } else {
+      fixedContact.classList.remove("is-show");
+    }
+  }
+
+  window.addEventListener("scroll", toggleFixedContact, {
+    passive: true,
+  });
+
+  toggleFixedContact();
+});
+
+// menu toggle
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("sgMenuToggle");
   const nav = document.getElementById("sgNav");
@@ -62,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// call api categories for product nav
 document.addEventListener("DOMContentLoaded", function () {
   const productNav = document.getElementById("sgProductNav");
   const dropdown = document.getElementById("sgProductHeaderDropdown");
