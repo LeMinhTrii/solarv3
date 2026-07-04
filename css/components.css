@@ -131,6 +131,7 @@ img {
   margin-bottom: -50px;
 }
 
+/* không cho coppy */
 html,
 body,
 * {
@@ -156,4 +157,227 @@ button,
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+}
+
+/* =========================
+   FIXED SOCIAL CONTACT
+========================= */
+
+.sg-fixed-contact {
+  position: fixed;
+  right: 18px;
+  top: 58%;
+  transform: translateY(-50%) translateX(90px);
+  z-index: 999;
+  display: grid;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease,
+    transform 0.35s ease;
+}
+
+.sg-fixed-contact.is-show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+}
+
+.sg-fixed-contact-item {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(16, 32, 20, 0.2);
+  isolation: isolate;
+  animation: sgContactFloat 2.8s ease-in-out infinite;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.sg-fixed-contact-item::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: inherit;
+  opacity: 0.22;
+  z-index: -1;
+  animation: sgContactPulse 1.8s ease-out infinite;
+}
+
+.sg-fixed-contact-item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.sg-fixed-contact-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.sg-fixed-contact-item:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.sg-fixed-contact-item i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.sg-fixed-contact-item strong {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.sg-fixed-contact-item span {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  min-width: max-content;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: #23313f;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 900;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  box-shadow: 0 12px 26px rgba(16, 32, 20, 0.18);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sg-fixed-contact-item span::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: #23313f;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.sg-fixed-contact-item:hover {
+  transform: translateX(-5px) scale(1.08);
+  box-shadow: 0 18px 38px rgba(16, 32, 20, 0.28);
+  filter: saturate(1.1);
+}
+
+.sg-fixed-contact-item:hover span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.sg-fixed-contact-item.is-facebook {
+  background: linear-gradient(135deg, #1877f2 0%, #0b5fd3 100%);
+}
+
+.sg-fixed-contact-item.is-zalo {
+  background: linear-gradient(135deg, #0068ff 0%, #004ec2 100%);
+}
+
+.sg-fixed-contact-item.is-tiktok {
+  background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
+}
+
+.sg-fixed-contact-item.is-map {
+  background: linear-gradient(135deg, #087335 0%, #12a354 100%);
+}
+
+@keyframes sgContactPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.32;
+  }
+
+  70% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+@keyframes sgContactFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* MOBILE: vẫn dạng dọc, gọn hơn */
+@media (max-width: 767px) {
+  .sg-fixed-contact {
+    right: 12px;
+    top: auto;
+    bottom: 92px;
+    transform: translateX(80px);
+    gap: 10px;
+  }
+
+  .sg-fixed-contact.is-show {
+    transform: translateX(0);
+  }
+
+  .sg-fixed-contact-item {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 10px 24px rgba(16, 32, 20, 0.2);
+  }
+
+  .sg-fixed-contact-item i {
+    font-size: 17px;
+  }
+
+  .sg-fixed-contact-item strong {
+    font-size: 10.5px;
+  }
+
+  .sg-fixed-contact-item span {
+    right: calc(100% + 10px);
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .sg-fixed-contact-item:hover {
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 420px) {
+  .sg-fixed-contact {
+    right: 10px;
+    bottom: 82px;
+  }
+
+  .sg-fixed-contact-item {
+    width: 42px;
+    height: 42px;
+  }
 }
