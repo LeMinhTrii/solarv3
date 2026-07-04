@@ -267,6 +267,9 @@
   font-size: 12px;
 }
 @media (max-width: 980px) {
+  .sgs-card {
+    position: static;
+  }
   .sgs-tool {
     grid-template-columns: 1fr;
   }
