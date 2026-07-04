@@ -2281,6 +2281,124 @@
     font-size: 13px;
   }
 }
+/* =========================
+   NEWS SKELETON
+========================= */
+
+.sg-news-card.is-skeleton {
+  pointer-events: none;
+}
+
+.sg-news-skeleton-logo,
+.sg-news-skeleton-line,
+.sg-news-skeleton-image {
+  position: relative;
+  overflow: hidden;
+  background: #e9eee9;
+}
+
+.sg-news-skeleton-logo {
+  width: 72px;
+  height: 28px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.sg-news-skeleton-line {
+  height: 12px;
+  border-radius: 999px;
+}
+
+.sg-news-skeleton-line.is-head {
+  width: 78%;
+  margin: 0 auto;
+}
+
+.sg-news-skeleton-line.is-date {
+  width: 42%;
+  height: 10px;
+  margin-bottom: 12px;
+}
+
+.sg-news-skeleton-line.is-title {
+  width: 100%;
+  height: 13px;
+  margin-bottom: 8px;
+}
+
+.sg-news-skeleton-line.is-title-short {
+  width: 76%;
+  height: 13px;
+  margin-bottom: 14px;
+}
+
+.sg-news-skeleton-line.is-text {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 8px;
+}
+
+.sg-news-skeleton-line.is-text-short {
+  width: 68%;
+  height: 10px;
+  margin-bottom: 16px;
+}
+
+.sg-news-skeleton-line.is-btn {
+  width: 48%;
+  height: 11px;
+}
+
+.sg-news-skeleton-image {
+  width: 100%;
+  height: 155px;
+}
+
+.sg-news-skeleton-logo::before,
+.sg-news-skeleton-line::before,
+.sg-news-skeleton-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 100%
+  );
+  animation: sgNewsSkeletonMove 1.25s linear infinite;
+}
+
+@keyframes sgNewsSkeletonMove {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.sg-news-empty {
+  width: 100%;
+  padding: 34px 20px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(35, 49, 63, 0.1);
+  color: #5a6470;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .sg-news-skeleton-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sg-news-skeleton-image {
+    height: 210px;
+  }
+}
 
 /* =========================
    FAQ SECTION
